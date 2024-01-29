@@ -147,7 +147,7 @@ $$\underset{f}{\mathrm{minimize}} ~\frac{1}{n} \sum_{i=1}^n \beta_i l(f(\mathbf{
 ### Algorithm
 1. Create a binary-classification training set: $\{(\mathbf{x}_1, -1), \ldots, (\mathbf{x}_n, -1), (\mathbf{u}_1, 1), \ldots, (\mathbf{u}_m, 1)\}$.
 1. Train a binary classifier using logistic regression to get the function $h$.
-1. Weigh training data using $\beta_i = \exp(h(\mathbf{x}_i))$ or better $\beta_i = \min(\exp(h(\mathbf{x}_i)), c)$<br> for some constant $c$.
+1. Weight training data using $\beta_i = \exp(h(\mathbf{x}_i))$ or better $\beta_i = \min(\exp(h(\mathbf{x}_i)), c)$<br> for some constant $c$.
 1. Use weights $\beta_i$ for training on $\{(\mathbf{x}_1, y_1), \ldots, (\mathbf{x}_n, y_n)\}$<br> in $\underset{f}{\mathrm{minimize}} ~\frac{1}{n} \sum_{i=1}^n \beta_i l(f(\mathbf{x}_i), y_i)$.
 </div>
 
