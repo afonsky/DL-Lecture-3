@@ -29,7 +29,7 @@ info: >
 css: windicss
 title: Deep Learning
 subtitle: Linear Neural Networks for Classification
-date: 29/01/2024
+date: 27/01/2025
 venue: HSE
 author: Alexey Boldyrev
 ---
@@ -55,9 +55,6 @@ author: Alexey Boldyrev
 NB: This demo uses a custom syntax (using preparser extensions), with all the @@@@.
 -->
 
----
-src: ./slides/0_attendance.md
----
 
 ---
 src: ./slides/0_outline.md
