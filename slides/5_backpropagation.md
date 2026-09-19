@@ -106,7 +106,7 @@ by hand, and every architecture change meant redoing them.
 -->
 
 ---
-zoom: 0.85
+zoom: 0.82
 ---
 
 # Backpropagation = the Chain Rule, Backwards

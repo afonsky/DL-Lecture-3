@@ -10,7 +10,7 @@ layout: center
 </center>
 
 ---
-zoom: 0.87
+zoom: 0.84
 ---
 
 # Where a Linear Model Runs Out
@@ -216,7 +216,7 @@ zoom: 0.95
 <div class="grid grid-cols-2 gap-10">
 <div>
 
-### Universal approximation *(recap of Lecture 1)*
+### Universal approximation *(Lecture 1)*
 One hidden layer, enough units → **any** continuous function on a compact domain.
 
 ### What it does **not** say

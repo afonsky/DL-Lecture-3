@@ -5,7 +5,7 @@ layout: center
 # Backup Slides
 
 ---
-zoom: 0.86
+zoom: 0.8
 ---
 
 # Expert Systems vs Connectionism

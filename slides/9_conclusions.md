@@ -53,7 +53,7 @@ zoom: 0.95
 </div>
 
 ---
-zoom: 0.68
+zoom: 0.64
 ---
 
 # Learn More from the Experts

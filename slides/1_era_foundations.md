@@ -19,9 +19,9 @@ layout: center
   <img src="/Neuron3.svg" style="width: 300px !important;">
 </figure>
 
-* Advances in computability theory inspired computational models of cognition
-* Warren McCulloch & Walter Pitts [proposed](https://link.springer.com/article/10.1007/BF02478259) that biological neurons can be described as computational devices (1943)
-* In a way, this is another iteration of the problem of describing a general-purpose computation device
+* Computability theory inspired computational models of cognition
+* McCulloch & Pitts [proposed](https://link.springer.com/article/10.1007/BF02478259) that biological neurons are computational devices (1943)
+* Another iteration of the problem of describing a general-purpose computing device
 </div>
 <div>
 <br>

@@ -1,5 +1,5 @@
 ---
-zoom: 0.9
+zoom: 0.84
 ---
 
 # From Lecture 2 to Today
@@ -11,8 +11,6 @@ zoom: 0.9
 * **forward → loss → backward → step**, on minibatches
 * Linear and softmax regression = **one-layer** networks
 * Cross-entropy, learning rate, weight decay, validation
-
-<br>
 
 ### We are still missing
 * Every model so far draws a **hyperplane**. XOR does not care
