@@ -1,21 +1,21 @@
 # Course Logistics
 
 <br>
-<div class="grid grid-cols-[2fr_3fr] gap-30">
+<div class="grid grid-cols-[5fr_3fr] gap-30">
 <div>
 
 ### HW 1. PyTorch practice - deadline reminder
 
-Release Date: 14.09.2026 (Today)
+Release Date: 14.09.2026
 
-Deadline: \
-(Soft) 23:59 MSK 23.09.2026 \
-(Hard) 18:00 MSK 24.09.2026
+Deadline:<br><br>
+(Soft) 23:59 MSK 23.09.2026 - **this Wednesday**<br><br>
+(Hard) 18:00 MSK 24.09.2026 - **this Thursday**
 </div>
 <div>
   <figure>
     <img src="/pytorch-logo-dark.png" style="width: 600px !important;">
-    <figcaption style="color:#b3b3b3ff; font-size: 11px; position: relative; left:250px">Image source:
+    <figcaption style="color:#b3b3b3ff; font-size: 11px; position: relative; left:150px">Image source:
       <a href="https://github.com/pytorch/pytorch/blob/main/docs/source/_static/img/pytorch-logo-dark.png">PyTorch logo</a>
     </figcaption>
   </figure>
