@@ -1,14 +1,14 @@
 ---
-zoom: 0.84
+zoom: 0.93
 ---
 
 # From Lecture 2 to Today
 
-<div class="grid grid-cols-2 gap-10">
+<div class="grid grid-cols-2 gap-20">
 <div>
 
 ### We already have *(Lectures 1–2)*
-* **forward → loss → backward → step**, on minibatches
+* **forward → loss → backward → step**,<br> on minibatches
 * Linear and softmax regression = **one-layer** networks
 * Cross-entropy, learning rate, weight decay, validation
 

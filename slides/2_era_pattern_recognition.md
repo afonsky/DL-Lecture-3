@@ -45,7 +45,7 @@ layout: center
 
 
 ---
-zoom: 0.9
+zoom: 0.99
 ---
 
 # The First AI Winter ❄️
@@ -76,6 +76,8 @@ zoom: 0.9
 </div>
 
 ---
+zoom: 1.1
+---
 
 # Expert Systems & Rule-Based Approaches
 
@@ -95,8 +97,6 @@ zoom: 0.9
 #### See backup slides for a comparison table of expert systems and deep learning.
 
 ---
-zoom: 0.88
----
 
 # Backpropagation Resurfaces
 
@@ -108,8 +108,9 @@ zoom: 0.88
 <div>
 
 * **Key idea**: the gradient w.r.t. every weight, by the **chain rule**, from output back to input
-* This is what lets **hidden layers** actually learn — Minsky's critique, answered
-* [Discovered several times before](https://people.idsia.ch/~juergen/who-invented-backpropagation.html) (Linnainmaa 1970, Werbos 1982); the 1986 paper made it practical
+* This is what lets **hidden layers** actually learn<br> — Minsky's critique, answered
+* [Discovered several times before](https://people.idsia.ch/~juergen/who-invented-backpropagation.html) (Linnainmaa 1970,<br> Werbos 1982)
+  * The 1986 paper made it practical
 
 <br>
 

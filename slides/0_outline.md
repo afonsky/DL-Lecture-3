@@ -30,6 +30,15 @@ Deadline: \
 #### Note: You won't be able to upload your homework until you've completed the checklist [https://edu.hse.ru/mod/checklist/view.php?id=2186906](https://edu.hse.ru/mod/checklist/view.php?id=2186906)
 
 ---
+layout: center
+---
+
+<center>
+
+# A Bit of AI History
+</center>
+
+---
 zoom: 0.99
 ---
 
@@ -37,15 +46,19 @@ zoom: 0.99
 
 <script setup>
 const timelineSource = `
+> DEFAULTVIEW 1940|1995
+
 @ [1940~1960] #7fc97f Foundations
 - [1943] McCulloch-Pitts Neuron
 - [1958] Rosenblatt's Perceptron
 @ [1960~1988] #beaed4 Pattern Recognition Era
 - [1969] Minsky & Papert's Perceptrons
+- [1974~1980] #1fd2df 1st AI ❄️
 - [1986] Backpropagation
-@ [1988~2000] #fdc086 The BDT Era
+- [1987~2000] #1fd2df 2nd AI ❄️ 
+@ [1988~2000] #fdc086 BDT Era
 @ [2000~2018] #ffff99 Deep Learning at Scale
-@ [2018~2026] #386cb0 The Modern Era
+@ [2018~2026-09-21] #386cb0 Modern Era
 `
 </script>
 

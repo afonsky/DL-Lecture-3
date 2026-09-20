@@ -10,7 +10,7 @@ layout: center
 </center>
 
 ---
-zoom: 0.84
+zoom: 0.9
 ---
 
 # Where a Linear Model Runs Out
@@ -33,7 +33,7 @@ zoom: 0.84
 <v-click>
 
 * Fixable by hand — square it, use $|t-37|$: that is **feature engineering**
-* But which hand-made feature says "dog"? Inverting an image keeps its class
+* CIFAR example: Which hand-made feature says "dog"? Inverting an image keeps its class
 
 </v-click>
 </div>
@@ -49,12 +49,12 @@ significance of a pixel depends on its neighbours. Nobody can hand-craft that, s
 -->
 
 ---
-zoom: 0.88
+zoom: 0.98
 ---
 
 # The XOR Problem, Solved
 
-### Minsky & Papert's 1969 example takes **one hidden layer of two ReLU units**
+#### Minsky & Papert's 1969 example takes **one hidden layer of two ReLU units**
 
 <figure>
   <img src="/xor_mlp.svg" style="width: 870px !important; margin: 0 auto;">
@@ -81,29 +81,33 @@ Panel (b) is the money shot: the two y=1 points land on the *same* point.
 -->
 
 ---
-zoom: 0.9
+zoom: 0.93
 ---
 
 # Incorporating Hidden Layers
 
-<div class="grid grid-cols-[3fr_2fr] gap-8">
+<div class="grid grid-cols-[3fr_4fr] gap-8">
 <div>
 
-$$\mathbf{H} = \mathbf{X}\mathbf{W}^{(1)} + \mathbf{b}^{(1)}, \qquad \mathbf{O} = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}$$
+$$\mathbf{H} = \mathbf{X}\mathbf{W}^{(1)} + \mathbf{b}^{(1)}, \quad \mathbf{O} = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}$$
 
-$\mathbf{H}$ is the **hidden representation**; both layers are fully connected (`nn.Linear`).
+$\mathbf{H}$ is the **hidden representation**;<br> both layers are fully connected (`nn.Linear`).
 
 <br>
 
 ### Vocabulary
-* **Width** = units per layer · **depth** = number of layers
-* The input layer computes nothing → this is a **2-layer** network
+* **Width** = units per layer
+* **Depth** = number of layers
+* The input layer computes nothing<br> → this is a **2-layer** network
 * MLP = stacked fully connected layers
 
+<br>
+
+<span class="refs">Read: [d2l.ai 5.1.1.2](https://d2l.ai/chapter_multilayer-perceptrons/mlp.html#incorporating-hidden-layers)</span>
 </div>
 <div>
   <figure>
-    <img src="/mlp.svg" style="width: 330px !important;">
+    <img src="/mlp.svg" style="width: 390px !important;">
     <figcaption style="color:#b3b3b3ff; font-size: 11px; position: relative; top: 6px">Image source:
       <a href="https://d2l.ai/chapter_multilayer-perceptrons/mlp.html">d2l.ai Fig. 5.1.1 An MLP with a hidden layer of five hidden units</a>
     </figcaption>
@@ -113,48 +117,51 @@ $\mathbf{H}$ is the **hidden representation**; both layers are fully connected (
 
 <v-click>
 
-### Counting parameters
+#### Counting parameters
 
-$784 \to 256 \to 10$, as in MNIST:
+$28\times28=784 \to 256 \to 10$, as in [MNIST](https://en.wikipedia.org/wiki/MNIST_database):
 
-$784{\cdot}256 + 256 = 200{,}960$
+$784\times256 + 256 = 200\,960$
 
-$256{\cdot}10 + 10 = 2{,}570$
+$256\times10 + 10 = 2\,570$
 
-**203,530 parameters**, 99 % of them in the first layer
+$203\,530$ parameters, 99 % of them in the 1st layer
 
 </v-click>
 </div>
 </div>
 
-<span class="refs">Read: [d2l.ai 5.1.1.2](https://d2l.ai/chapter_multilayer-perceptrons/mlp.html#incorporating-hidden-layers)</span>
-
 ---
-zoom: 0.95
+zoom: 0.99
 ---
 
 # Two Linear Layers Are Still One Linear Layer
-
-<div class="grid grid-cols-[3fr_2fr] gap-8">
-<div>
 
 $$
 \mathbf{O} = (\mathbf{X}\mathbf{W}^{(1)} + \mathbf{b}^{(1)})\mathbf{W}^{(2)} + \mathbf{b}^{(2)}
            = \mathbf{X}\underbrace{\mathbf{W}^{(1)}\mathbf{W}^{(2)}}_{\mathbf{W}} + \underbrace{\mathbf{b}^{(1)}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}}_{\mathbf{b}}
 $$
 
+
+<div class="grid grid-cols-[3fr_2fr] gap-8">
+<div>
+
+<br>
+
 <v-clicks>
 
-* An affine function of an affine function is affine: **we gained nothing but parameters**
-* Worse: $\operatorname{rank}(\mathbf{W}^{(1)}\mathbf{W}^{(2)}) \le \min(d, h, q)$ — a narrow hidden layer is a **bottleneck**
+* An affine function of an affine function is affine:<br> **we gained nothing but parameters**
+
+* Worse: $\operatorname{rank}(\mathbf{W}^{(1)}\mathbf{W}^{(2)}) \le \min(d, h, q)$<br> — a narrow hidden layer is a **bottleneck**
 
 </v-clicks>
 </div>
 <div>
 
 <v-click>
+<br>
 
-### The missing ingredient
+#### The missing ingredient
 A nonlinear **activation** $\sigma$, applied elementwise:
 
 $$
@@ -170,7 +177,7 @@ Now the layers cannot be merged, and depth starts to pay.
 </div>
 </div>
 
-<span class="refs">Read: [d2l.ai 5.1.1.3](https://d2l.ai/chapter_multilayer-perceptrons/mlp.html#from-linear-to-nonlinear) · Exercise 5.1.1 asks you to prove both claims</span>
+<span class="refs">Read: [d2l.ai 5.1.1.3](https://d2l.ai/chapter_multilayer-perceptrons/mlp.html#from-linear-to-nonlinear)</span>
 
 <!--
 The single most important algebraic fact of the lecture. If they remember one thing:
