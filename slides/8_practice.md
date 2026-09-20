@@ -10,7 +10,7 @@ layout: center
 </center>
 
 ---
-zoom: 0.82
+zoom: 0.9
 ---
 
 # An MLP in PyTorch
@@ -62,7 +62,7 @@ for epoch in range(num_epochs):
 <span class="refs">Read: [d2l.ai 5.2](https://d2l.ai/chapter_multilayer-perceptrons/mlp-implementation.html) · [S. Raschka, PyTorch in One Hour](https://sebastianraschka.com/teaching/pytorch-1h/) · [PyTorch quickstart](https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html)</span>
 
 ---
-zoom: 0.95
+zoom: 0.94
 ---
 
 # Choosing Width and Depth
@@ -73,7 +73,7 @@ zoom: 0.95
 ### Starting points that usually work
 <v-clicks>
 
-* **Width**: powers of two — 128, 256, 512 (GPU alignment)
+* **Width**: powers of two — 128, 256, 512<br> (GPU alignment)
 * **Depth**: **1–2 hidden layers** for tabular or vector inputs
 * Go **wider before deeper**
 * Never a 1-unit hidden layer — a rank-1 bottleneck
@@ -101,10 +101,12 @@ Start from a published architecture. Change one thing at a time.
 </div>
 </div>
 
+<br>
+
 <span class="refs">Read: [Y. Bengio, Practical Recommendations for Gradient-Based Training](https://arxiv.org/abs/1206.5533) · [Google, Deep Learning Tuning Playbook](https://github.com/google-research/tuning_playbook) · [d2l.ai 5.2 Exercises](https://d2l.ai/chapter_multilayer-perceptrons/mlp-implementation.html#exercises)</span>
 
 ---
-zoom: 0.92
+zoom: 0.99
 ---
 
 # A Debugging Checklist
@@ -116,8 +118,8 @@ zoom: 0.92
 <v-clicks>
 
 * **Look at your data.** Shapes, a few examples, the label distribution
-* **Initial loss $\approx \ln C$** — 2.30 for 10 classes *(Lecture 2)*
-* **Overfit a single batch** of ~8 examples to zero loss, regularization off
+* **Initial loss**: $- \ln p = - \ln\frac{1}{10} \approx 2.3$<br> for 10 classes classification
+* **Overfit a single batch** of ~$8$ examples to zero loss, regularization off
 
 </v-clicks>
 </div>
@@ -127,7 +129,7 @@ zoom: 0.92
 <v-clicks>
 
 * Plot **both** curves. Training up → bug; validation up → overfitting
-* Gradient norms: `NaN` → exploding, $\approx 0$ → vanishing
+* Gradient norms: `NaN` → exploding,<br> $\approx 0$ → vanishing
 * Four classic bugs: no `zero_grad()`, no `eval()`, double softmax, unshuffled data
 * **Fix the seed**, change one thing per experiment
 
@@ -152,7 +154,7 @@ Also: keep a baseline number to beat.
 -->
 
 ---
-zoom: 0.92
+zoom: 0.99
 ---
 
 # Where MLPs Live Today
@@ -164,7 +166,7 @@ zoom: 0.92
 
 * **Tabular data**: a baseline, but boosted trees usually win *(Lecture 1)*
 * **As a head** on a ResNet or a BERT encoder
-* **Inside every transformer block**: a two-layer MLP, $d \to 4d \to d$
+* **Inside every transformer block**:<br> a two-layer MLP, $d \to 4d \to d$
 * Roughly **two thirds of an LLM's parameters**
 
 </v-clicks>
@@ -177,6 +179,8 @@ zoom: 0.92
 
 </v-click>
 
+<br>
+
 <v-click>
 
 ### What changes later
@@ -187,5 +191,8 @@ zoom: 0.92
 </v-click>
 </div>
 </div>
+
+<br>
+<br>
 
 <span class="refs">Read: [d2l.ai 11.7 The Transformer Architecture](https://d2l.ai/chapter_attention-and-transformers/transformer.html) · [Grinsztajn et al. (2022) on tabular data](https://arxiv.org/abs/2207.08815) · Watch: [A. Karpathy, Let's build GPT](https://www.youtube.com/watch?v=kCc8FmEb1nY)</span>

@@ -1,5 +1,5 @@
 ---
-zoom: 0.95
+zoom: 0.99
 ---
 
 # Conclusions: The Model and Backpropagation
@@ -9,14 +9,16 @@ zoom: 0.95
 
 ### The model
 * An affine function of an affine function is affine — **the activation is what makes depth worth having**
-* A hidden layer does not classify, it **re-describes** the data. XOR takes two ReLU units
+* A hidden layer does not classify,<br> it **re-describes** the data.
+    * XOR takes two ReLU units
 * **ReLU** in hidden layers, **GELU** in transformers, softmax on the output
 
 </div>
 <div>
 
 ### Backpropagation
-* Forward: **keep** every value. Backward: **incoming gradient × local derivative**
+* Forward: **keep** every value.
+* Backward: **incoming gradient × local derivative**
 * One backward pass gives **every** gradient at ~2× a forward pass
 * Weight gradient = (gradient arriving) × (input that arrived)$^\top$
 * Activations are stored → **training memory ∝ depth × batch size**
@@ -25,7 +27,7 @@ zoom: 0.95
 </div>
 
 ---
-zoom: 0.95
+zoom: 0.99
 ---
 
 # Conclusions: Making It Train, and Not Overfit
@@ -46,14 +48,16 @@ zoom: 0.95
 * **Dropout**: zero each unit with probability $p$, rescale by $1/(1-p)$, off with `eval()`
 * Order: more data → early stopping → weight decay → dropout → smaller network
 
+</div>
+</div>
+<br>
+<br>
+
 ### The one habit to take away
 **Overfit a single batch to zero loss first.** If that fails, no hyperparameter will save you.
 
-</div>
-</div>
-
 ---
-zoom: 0.64
+zoom: 0.69
 ---
 
 # Learn More from the Experts

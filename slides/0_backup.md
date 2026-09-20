@@ -5,7 +5,7 @@ layout: center
 # Backup Slides
 
 ---
-zoom: 0.8
+zoom: 0.85
 ---
 
 # Expert Systems vs Connectionism
@@ -19,7 +19,7 @@ zoom: 0.8
 | **Weaknesses** | Brittle: fails on cases not covered by rules; doesn't scale (knowledge bottleneck) | Needs large datasets; hard to interpret; limited theory in that era |
 
 ---
-zoom: 0.66
+zoom: 0.71
 ---
 
 # Activation Functions: Formulas and Derivatives
@@ -39,12 +39,12 @@ zoom: 0.66
 <span class="refs">Read: [d2l.ai 5.1.2](https://d2l.ai/chapter_multilayer-perceptrons/mlp.html#activation-functions) · Docs: [torch.nn non-linear activations](https://pytorch.org/docs/stable/nn.html#non-linear-activations-weighted-sum-nonlinearity)</span>
 
 ---
-zoom: 0.72
+zoom: 0.8
 ---
 
 # The Chain Rule on a Graph, in General
 
-For tensors $\mathsf{Y} = f(\mathsf{X})$ and $\mathsf{Z} = g(\mathsf{Y})$:
+#### For tensors $\mathsf{Y} = f(\mathsf{X})$ and $\mathsf{Z} = g(\mathsf{Y})$:
 
 $$\frac{\partial \mathsf{Z}}{\partial \mathsf{X}} = \operatorname{prod}\!\left(\frac{\partial \mathsf{Z}}{\partial \mathsf{Y}}, \frac{\partial \mathsf{Y}}{\partial \mathsf{X}}\right)$$
 
@@ -65,12 +65,12 @@ A neural network has millions of parameters and exactly one scalar loss, so reve
 <span class="refs">Read: [d2l.ai 5.3.3](https://d2l.ai/chapter_multilayer-perceptrons/backprop.html#backpropagation) · [Baydin et al., Automatic Differentiation in Machine Learning: a Survey](https://arxiv.org/abs/1502.05767)</span>
 
 ---
-zoom: 0.78
+zoom: 0.83
 ---
 
 # Xavier Initialization: Where the Formula Comes From
 
-For a layer without a nonlinearity, $o_i = \sum_{j=1}^{n_\mathrm{in}} w_{ij}x_j$, with weights drawn independently with mean 0 and variance $\sigma^2$, and inputs with mean 0 and variance $\gamma^2$:
+#### For a layer without a nonlinearity, $o_i = \sum_{j=1}^{n_\mathrm{in}} w_{ij}x_j$, with weights drawn independently with mean 0 and variance $\sigma^2$, and inputs with mean 0 and variance $\gamma^2$:
 
 $$
 \mathbb{E}[o_i] = \sum_j \mathbb{E}[w_{ij}]\,\mathbb{E}[x_j] = 0,
@@ -92,7 +92,7 @@ $$\tfrac{1}{2}(n_\mathrm{in} + n_\mathrm{out})\,\sigma^2 = 1 \quad\Longleftright
 <span class="refs">Read: [d2l.ai 5.4.2.2](https://d2l.ai/chapter_multilayer-perceptrons/numerical-stability-and-init.html#xavier-initialization) · [Glorot & Bengio (2010)](https://proceedings.mlr.press/v9/glorot10a.html)</span>
 
 ---
-zoom: 0.8
+zoom: 0.9
 ---
 
 # Dropout from Scratch
@@ -115,23 +115,23 @@ print(dropout_layer(X, 1.0))   # tensor([[0., 0., 0., 0., 0., 0., 0., 0.]])
 
 * The mask is redrawn **on every forward pass**, so every minibatch sees a different subnetwork
 * The division by $1-p$ is what lets you leave the test-time network untouched ("inverted dropout"); this is what PyTorch does
-* In a model you must guard it yourself — `if self.training: h = dropout_layer(h, p)` — which is exactly what `nn.Dropout` handles for you
+* In a model you must guard it yourself — `if self.training: h = dropout_layer(h, p)`<br> — which is exactly what `nn.Dropout` handles for you
 
 <span class="refs">Read: [d2l.ai 5.6.2](https://d2l.ai/chapter_multilayer-perceptrons/dropout.html#implementation-from-scratch)</span>
 
 ---
-zoom: 0.72
+zoom: 0.87
 ---
 
 # Counting Parameters and Activations
 
-For a fully connected layer $n_\mathrm{in} \to n_\mathrm{out}$: $\ n_\mathrm{in} \cdot n_\mathrm{out} + n_\mathrm{out}$ parameters.
+#### For a fully connected layer $n_\mathrm{in} \to n_\mathrm{out}$: $\ n_\mathrm{in} \cdot n_\mathrm{out} + n_\mathrm{out}$ parameters.
 
 | Network | Parameters | Activations stored per example |
 |---|---|---|
-| `Linear(784, 10)` *(Lecture 2)* | $7{,}850$ | 10 |
-| `Linear(784,256) + Linear(256,10)` | $200{,}960 + 2{,}570 = 203{,}530$ | $256 + 10 = 266$ |
-| `784→256→256→10` | $203{,}530 + 65{,}792 = 269{,}322$ | $522$ |
+| `Linear(784, 10)` *(Lecture 2)* | $7\,850$ | $10$ |
+| `Linear(784, 256) + Linear(256,10)` | $200\,960 + 2\,570 = 203\,530$ | $256 + 10 = 266$ |
+| `784 → 256 → 256 → 10` | $203\,530 + 65\,792 = 269\,322$ | $522$ |
 
 <br>
 

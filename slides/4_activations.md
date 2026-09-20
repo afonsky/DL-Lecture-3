@@ -1,8 +1,10 @@
 ---
-zoom: 0.9
+zoom: 0.99
 ---
 
 # Activation Functions
+
+<br>
 
 <figure>
   <img src="/activations.svg" style="width: 900px !important; margin: 0 auto;">
@@ -21,6 +23,8 @@ zoom: 0.9
 </div>
 </div>
 
+<br>
+
 <span class="refs">Read: [d2l.ai 5.1.2](https://d2l.ai/chapter_multilayer-perceptrons/mlp.html#activation-functions) · Watch: [StatQuest: Neural Networks Pt. 3, ReLU in Action](https://www.youtube.com/watch?v=68BZ5f7P94E)</span>
 
 <!--
@@ -29,7 +33,7 @@ ReLU: exactly 0 or exactly 1, nothing in between. That single fact is most of th
 -->
 
 ---
-zoom: 0.95
+zoom: 0.99
 ---
 
 # Why ReLU Became the Default
@@ -37,13 +41,16 @@ zoom: 0.95
 <div class="grid grid-cols-2 gap-10">
 <div>
 
-### $\operatorname{ReLU}(x) = \max(x, 0)$
+#### $\operatorname{ReLU}(x) = \max(x, 0)$
 
+<br>
+
+### ReLU benefits:
 <v-clicks>
 
 * **Derivative 0 or 1** — a gradient is blocked or passed on unchanged, never *shrunk*
 * **Cheap**: one comparison, no $\exp$
-* **Sparse**: about half the units output exactly 0
+* **Sparse**: about half the units<br> output exactly $0$
 
 </v-clicks>
 </div>
@@ -52,7 +59,7 @@ zoom: 0.95
 ### The failure mode: dying ReLU
 <v-clicks>
 
-* Input always negative → gradient 0 **forever**
+* Input always negative<br> → gradient 0 **forever**
 * Usually caused by too large a learning rate
 * Fix: `LeakyReLU(0.01)` or `ELU`
 
@@ -61,7 +68,7 @@ zoom: 0.95
 <v-click>
 
 #### Sigmoid and tanh are not obsolete
-They moved from hidden layers to **outputs** and to **gates** in LSTMs and GRUs.
+They moved from hidden layers to **outputs** and to **gates** in [LSTMs](https://en.wikipedia.org/wiki/Long_short-term_memory) and [GRUs](https://en.wikipedia.org/wiki/Gated_recurrent_unit).
 
 </v-click>
 </div>
@@ -73,10 +80,14 @@ story of the next section. ReLU is not differentiable at 0; everyone takes the d
 be 0 there and nothing bad happens. Dying ReLU is also caused by a large negative bias.
 -->
 
+<br>
+<br>
+<br>
+
 <span class="refs">Papers: [Nair & Hinton (2010)](https://www.cs.toronto.edu/~hinton/absps/reluICML.pdf) · [Glorot, Bordes & Bengio (2011), Deep Sparse Rectifier Networks](https://proceedings.mlr.press/v15/glorot11a.html) · [He et al. (2015), PReLU](https://arxiv.org/abs/1502.01852)</span>
 
 ---
-zoom: 0.7
+zoom: 0.8
 ---
 
 # Which Activation Should I Use?
@@ -100,10 +111,12 @@ zoom: 0.7
 <span class="refs">Papers: [Hendrycks & Gimpel (2016), GELU](https://arxiv.org/abs/1606.08415) · [Ramachandran, Zoph & Le (2017), Swish](https://arxiv.org/abs/1710.05941) · Docs: [torch.nn activations](https://pytorch.org/docs/stable/nn.html#non-linear-activations-weighted-sum-nonlinearity)</span>
 
 ---
-zoom: 0.95
+zoom: 0.99
 ---
 
 # Five Minutes in the Playground
+
+<br>
 
 <div class="grid grid-cols-[3fr_2fr] gap-8">
 <div>
@@ -129,6 +142,8 @@ zoom: 0.95
 </v-click>
 </div>
 </div>
+
+<br>
 
 <span class="refs">Try also: [A. Karpathy, ConvNetJS 2-D classification demo](https://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html)</span>
 

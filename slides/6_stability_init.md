@@ -10,7 +10,7 @@ layout: center
 </center>
 
 ---
-zoom: 0.82
+zoom: 0.85
 ---
 
 # Vanishing and Exploding Gradients
@@ -18,15 +18,15 @@ zoom: 0.82
 <div class="grid grid-cols-[2fr_3fr] gap-6">
 <div>
 
-Going back through $L$ layers multiplies $L$ Jacobians:
+Going back through $L$ layers<br> multiplies $L$ Jacobians:
 
 $$\frac{\partial \mathbf{o}}{\partial \mathbf{W}^{(\ell)}} = \mathbf{M}^{(L)} \cdots \mathbf{M}^{(\ell+1)} \mathbf{v}^{(\ell)}$$
 
-A long product either **collapses to 0** or **runs away**.
+A long product either **collapses to** $0$ or **runs away**.
 
 <v-clicks>
 
-* Sigmoid's derivative never exceeds **0.25** → at most $0.25^{10}\approx 10^{-6}$ over ten layers
+* Sigmoid's derivative never exceeds $0.25$ → at most $0.25^{10}\approx 10^{-6}$ over ten layers
 * **Vanishing**: early layers stop learning, the loss just stalls
 * **Exploding**: the loss becomes `NaN`. Remedy: `clip_grad_norm_`
 
@@ -41,16 +41,21 @@ A long product either **collapses to 0** or **runs away**.
 </figure>
 
 <br>
+<br>
 
 <v-click>
 
 #### This is why the 1986 promise took twenty more years: backpropagation was correct, but the gradient never reached the bottom of a deep sigmoid network.
 
 </v-click>
-</div>
-</div>
+
+<br>
+<br>
+<br>
 
 <span class="refs">Read: [d2l.ai 5.4.1](https://d2l.ai/chapter_multilayer-perceptrons/numerical-stability-and-init.html) · [Hochreiter (1991)](https://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf) · [Bengio, Simard & Frasconi (1994)](https://ieeexplore.ieee.org/document/279181)</span>
+</div>
+</div>
 
 <!--
 Tie this back to the history section explicitly: Rumelhart-Hinton-Williams 1986 gave the
@@ -58,7 +63,7 @@ algorithm; sigmoid plus bad initialization meant it did not scale. ReLU and He i
 -->
 
 ---
-zoom: 0.92
+zoom: 0.95
 ---
 
 # Never Start All the Weights at the Same Value
@@ -100,7 +105,7 @@ Then: the scale question is the next slide.
 -->
 
 ---
-zoom: 0.84
+zoom: 0.99
 ---
 
 # Xavier and He Initialization
@@ -145,7 +150,7 @@ PyTorch defaults are already sensible; you override when you need to.
 <span class="refs">Papers: [Glorot & Bengio (2010)](https://proceedings.mlr.press/v9/glorot10a.html) · [He et al. (2015)](https://arxiv.org/abs/1502.01852) · Read: [d2l.ai 5.4.2](https://d2l.ai/chapter_multilayer-perceptrons/numerical-stability-and-init.html#parameter-initialization) · Docs: [torch.nn.init](https://pytorch.org/docs/stable/nn.init.html) · The derivation is in the backup slides</span>
 
 ---
-zoom: 0.88
+zoom: 0.95
 ---
 
 # What Actually Made Deep Networks Trainable

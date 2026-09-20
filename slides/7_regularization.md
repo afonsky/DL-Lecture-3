@@ -10,7 +10,7 @@ layout: center
 </center>
 
 ---
-zoom: 0.86
+zoom: 0.9
 ---
 
 # Deep Networks Overfit — Watch the Two Curves
@@ -25,8 +25,8 @@ zoom: 0.86
 <div class="grid grid-cols-2 gap-10">
 <div>
 
-* **Left**: training loss keeps falling; validation bottoms out at **epoch 67**, then climbs 58 %
-* The model is memorizing the noise in 80 points *(Lecture 2)*
+* **Left**: training loss keeps falling; validation bottoms out at **epoch 67**, then climbs $58\%$
+* The model is memorizing the noise in $80$ points *(Lecture 2)*
 
 </div>
 <div>
@@ -34,7 +34,7 @@ zoom: 0.86
 <v-click>
 
 * **Early stopping**: keep the **best checkpoint**, stop after `patience` epochs with no gain
-* The cheapest regularizer there is — and it saves 1100 wasted epochs
+* The cheapest regularizer there is — and it saves $1\,100$ wasted epochs
 
 </v-click>
 </div>
@@ -48,7 +48,7 @@ worth more than any single technique in this lecture.
 -->
 
 ---
-zoom: 0.86
+zoom: 0.87
 ---
 
 # Dropout
@@ -95,7 +95,7 @@ noise is equivalent to Tikhonov regularization.
 <span class="refs">Paper: [Srivastava, Hinton et al. (2014), JMLR](https://jmlr.org/papers/v15/srivastava14a.html) · Read: [d2l.ai 5.6](https://d2l.ai/chapter_multilayer-perceptrons/dropout.html) · Watch: [A. Ng, Dropout Regularization](https://www.youtube.com/watch?v=D8PJAL-MZv8)</span>
 
 ---
-zoom: 0.88
+zoom: 0.95
 ---
 
 # Dropout in Practice
@@ -117,7 +117,7 @@ model.eval()    # dropout OFF: the full network
 <v-clicks>
 
 * **After** the activation of each hidden layer, never on the output
-* Typical $p$: **0.5** wide, **0.1–0.3** narrow or near the input
+* Typical $p$: $0.5$ wide,<br> $0.1-0.3$ narrow or near the input
 * **Forgetting `model.eval()` is one of the commonest bugs in student code**
 
 </v-clicks>
@@ -133,10 +133,13 @@ model.eval()    # dropout OFF: the full network
 
 </v-clicks>
 
+<br>
+
 <v-click>
 
-#### Where it is used today
-Standard in **transformers**; in modern CNNs largely replaced by batch norm plus augmentation.
+#### Where it is used today:
+* Standard in **transformers**
+* In modern CNNs largely replaced by batch norm plus augmentation.
 
 </v-click>
 </div>
@@ -145,7 +148,7 @@ Standard in **transformers**; in modern CNNs largely replaced by batch norm plus
 <span class="refs">Docs: [nn.Dropout](https://pytorch.org/docs/stable/generated/torch.nn.Dropout.html) · The from-scratch version is in the backup slides</span>
 
 ---
-zoom: 0.74
+zoom: 0.79
 ---
 
 # The Regularization Toolbox

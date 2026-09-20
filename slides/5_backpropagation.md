@@ -10,12 +10,12 @@ layout: center
 </center>
 
 ---
-zoom: 0.9
+zoom: 0.95
 ---
 
 # Forward Propagation
 
-<div class="grid grid-cols-[3fr_2fr] gap-8">
+<div class="grid grid-cols-[3fr_3fr] gap-2">
 <div>
 
 **Forward propagation** = compute and **store** every intermediate value, input → loss:
@@ -23,11 +23,11 @@ zoom: 0.9
 $$
 \mathbf{z} = \mathbf{W}^{(1)}\mathbf{x}, \quad
 \mathbf{h} = \phi(\mathbf{z}), \quad
-\mathbf{o} = \mathbf{W}^{(2)}\mathbf{h}, \quad
+\mathbf{o} = \mathbf{W}^{(2)}\mathbf{h}, \quad \\
 L = l(\mathbf{o}, y)
 $$
 
-with weight decay *(Lecture 2)*: $J = L + s$, $\ s = \frac{\lambda}{2}(\|\mathbf{W}^{(1)}\|_\mathrm{F}^2 + \|\mathbf{W}^{(2)}\|_\mathrm{F}^2)$.
+with weight decay *(Lecture 2)*:<br> $J = L + s$, $\ s = \frac{\lambda}{2}(\|\mathbf{W}^{(1)}\|_\mathrm{F}^2 + \|\mathbf{W}^{(2)}\|_\mathrm{F}^2)$.
 
 <v-clicks>
 
@@ -42,19 +42,28 @@ has to stay in memory, which is the subject of the memory slide in a few minutes
 -->
 </div>
 <div>
+
+<br>
   <figure>
-    <img src="/forward.svg" style="width: 450px !important;">
+    <img src="/forward.svg" style="width: 480px !important;">
     <figcaption style="color:#b3b3b3ff; font-size: 11px; position: relative; top: 8px">Image source:
       <a href="https://d2l.ai/chapter_multilayer-perceptrons/backprop.html">d2l.ai Fig. 5.3.1 Computational graph of forward propagation</a>
     </figcaption>
   </figure>
-</div>
-</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <span class="refs">Read: [d2l.ai 5.3.1–5.3.2](https://d2l.ai/chapter_multilayer-perceptrons/backprop.html)</span>
+</div>
+</div>
+
 
 ---
-zoom: 0.95
+zoom: 0.99
 ---
 
 # Why Not Just Nudge Every Weight?
@@ -67,9 +76,9 @@ $$\frac{\partial L}{\partial w_i} \approx \frac{L(w_i + \varepsilon) - L(w_i - \
 
 <v-clicks>
 
-* Correct, trivial — and **two forward passes per parameter**
-* Our 203,530-parameter MLP: ≈ 407,000 passes per step
-* A 7-billion-parameter model: $1.4\times10^{10}$ per step
+* Correct, trivial:<br> **two forward passes per parameter**
+* Our $203\,530$-parameter MLP:<br> $\approx 407\,000$ passes per step
+* A 7-billion-parameter model:<br> $1.4\times10^{10}$ per step
 
 </v-clicks>
 </div>
@@ -97,6 +106,8 @@ $$\frac{\partial L}{\partial w_i} \approx \frac{L(w_i + \varepsilon) - L(w_i - \
 </div>
 </div>
 
+<br>
+
 <span class="refs">Read: [d2l.ai 2.5 Automatic Differentiation](https://d2l.ai/chapter_preliminaries/autograd.html) · [CS231n, Backpropagation](https://cs231n.github.io/optimization-2/)</span>
 
 <!--
@@ -106,18 +117,20 @@ by hand, and every architecture change meant redoing them.
 -->
 
 ---
-zoom: 0.82
+zoom: 0.87
 ---
 
 # Backpropagation = the Chain Rule, Backwards
 
-### At every node: **incoming gradient × local derivative = outgoing gradient**
+#### At every node: **incoming gradient × local derivative = outgoing gradient**
 
 <figure>
   <img src="/backprop_chain.svg" style="width: 900px !important; margin: 0 auto;">
 </figure>
 
-<div class="grid grid-cols-2 gap-10">
+<br>
+
+<div class="grid grid-cols-[3fr_2fr] gap-10">
 <div>
 
 <v-clicks>
@@ -146,7 +159,7 @@ If they can do this chain, they can do any network: the rest is bookkeeping.
 -->
 
 ---
-zoom: 0.9
+zoom: 0.99
 ---
 
 # The Same Thing for a Whole Layer
@@ -156,10 +169,10 @@ zoom: 0.9
 
 $$
 \begin{aligned}
-\frac{\partial J}{\partial \mathbf{o}} &= \frac{\partial L}{\partial \mathbf{o}}\\[3pt]
-\frac{\partial J}{\partial \mathbf{W}^{(2)}} &= \frac{\partial J}{\partial \mathbf{o}}\,\mathbf{h}^\top + \lambda\mathbf{W}^{(2)}\\[3pt]
-\frac{\partial J}{\partial \mathbf{h}} &= {\mathbf{W}^{(2)}}^\top \frac{\partial J}{\partial \mathbf{o}}\\[3pt]
-\frac{\partial J}{\partial \mathbf{z}} &= \frac{\partial J}{\partial \mathbf{h}} \odot \phi'(\mathbf{z})\\[3pt]
+\frac{\partial J}{\partial \mathbf{o}} &= \frac{\partial L}{\partial \mathbf{o}}\\[6pt]
+\frac{\partial J}{\partial \mathbf{W}^{(2)}} &= \frac{\partial J}{\partial \mathbf{o}}\,\mathbf{h}^\top + \lambda\mathbf{W}^{(2)}\\[6pt]
+\frac{\partial J}{\partial \mathbf{h}} &= {\mathbf{W}^{(2)}}^\top \frac{\partial J}{\partial \mathbf{o}}\\[6pt]
+\frac{\partial J}{\partial \mathbf{z}} &= \frac{\partial J}{\partial \mathbf{h}} \odot \phi'(\mathbf{z})\\[6pt]
 \frac{\partial J}{\partial \mathbf{W}^{(1)}} &= \frac{\partial J}{\partial \mathbf{z}}\,\mathbf{x}^\top + \lambda\mathbf{W}^{(1)}
 \end{aligned}
 $$
@@ -171,7 +184,7 @@ $$
 
 * The same three moves as the scalar example, in matrix form
 * **Weight gradient** = (gradient arriving) × (input that arrived)$^\top$ — it automatically has the weight matrix's shape, a free sanity check
-* **Going back through a layer** = multiply by $\mathbf{W}^\top$
+* **Going back through a layer**<br> = multiply by $\mathbf{W}^\top$
 * Frameworks implement these five lines per layer type, and nothing else
 
 </v-clicks>
@@ -186,7 +199,7 @@ decay from Lecture 2, appearing exactly where you would expect them.
 -->
 
 ---
-zoom: 0.88
+zoom: 0.95
 ---
 
 # Training Costs Memory, Not Just Time
@@ -199,7 +212,7 @@ zoom: 0.88
 <div>
 
 * The backward pass needs every forward value, so activations **stay in memory** until it finishes
-* This is why **training** OOMs and **inference** of the same model does not
+* This is why **training** [OOMs](https://en.wikipedia.org/wiki/Out_of_memory) and **inference** of the same model does not
 
 </div>
 <div>
@@ -209,10 +222,13 @@ zoom: 0.88
 **When you hit CUDA OOM:** lower the batch size · `torch.no_grad()` for evaluation · gradient checkpointing · mixed precision
 
 </v-click>
+
+<br>
+
+<span class="refs">Read: [d2l.ai 5.3.4](https://d2l.ai/chapter_multilayer-perceptrons/backprop.html#training-neural-networks) · Docs: [torch.utils.checkpoint](https://pytorch.org/docs/stable/checkpoint.html)</span>
 </div>
 </div>
 
-<span class="refs">Read: [d2l.ai 5.3.4](https://d2l.ai/chapter_multilayer-perceptrons/backprop.html#training-neural-networks) · Docs: [torch.utils.checkpoint](https://pytorch.org/docs/stable/checkpoint.html)</span>
 
 <!--
 Left bar: the four things that occupy GPU memory while training. Optimizer state is the
@@ -225,7 +241,7 @@ Gradient checkpointing: ~30% more compute, large memory saving.
 -->
 
 ---
-zoom: 0.85
+zoom: 0.9
 ---
 
 # Autograd in PyTorch

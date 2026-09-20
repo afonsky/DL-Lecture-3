@@ -185,7 +185,7 @@ without sigma, depth costs parameters and buys nothing.
 -->
 
 ---
-zoom: 0.9
+zoom: 0.98
 ---
 
 # What a ReLU Network Computes
@@ -215,10 +215,12 @@ zoom: 0.9
 <span class="refs">Read: [d2l.ai 5.1, Exercise 4](https://d2l.ai/chapter_multilayer-perceptrons/mlp.html#exercises) · [Montúfar et al., On the Number of Linear Regions of Deep Neural Networks](https://arxiv.org/abs/1402.1869)</span>
 
 ---
-zoom: 0.95
+zoom: 0.99
 ---
 
 # How Powerful Is One Hidden Layer?
+
+<br>
 
 <div class="grid grid-cols-2 gap-10">
 <div>
@@ -245,7 +247,7 @@ One hidden layer, enough units → **any** continuous function on a compact doma
 * And depth is what makes training hard
 
 </v-clicks>
-
+<br>
 <v-click>
 
 > *"It can express any computable program. Coming up with a program that meets your specifications is the hard part."*
@@ -259,5 +261,7 @@ leaves: existence is not construction, and "enough" can be absurdly many units.
 </v-click>
 </div>
 </div>
+
+<br>
 
 <span class="refs">Read: [d2l.ai 5.1.1.4](https://d2l.ai/chapter_multilayer-perceptrons/mlp.html#universal-approximators) · [M. Nielsen, A visual proof](http://neuralnetworksanddeeplearning.com/chap4.html) · Watch: [Y. Abu-Mostafa, Learning From Data, Lec. 10](https://work.caltech.edu/lectures.html)</span>
